@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+  postgres:
+    image: postgres:alpine
+    container_name: heimdall_db
+    hostname: heimdall_db
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: heimdall
+      POSTGRES_PASSWORD: heimdall # TO CHANGE
+    ports:
+      - 3306:3306
+    restart: always
+
+  webserver:
+    build: ./web
+    container_name: heimdall_web
+    hostname: heimdall_web
+    volumes:
+      - ./web/src:/home/www
+    depends_on:
+      - postgres
+    ports:
+      - 80:80
+    restart: always
