@@ -11,7 +11,7 @@ services:
       POSTGRES_USER: heimdall
       POSTGRES_PASSWORD: heimdall # TO CHANGE
     ports:
-      - 3306:3306
+      - 5432:5432
     restart: always
 
   webserver:
