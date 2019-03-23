@@ -23,6 +23,7 @@ COPY config/php.ini /usr/local/etc/php/conf.d/custom.ini
 # Apache
 RUN a2enmod rewrite
 RUN a2ensite heimdall.watch
+RUN a2dissite 000-default
 
 ## Libs
 RUN apt-get update || apt-get update \
