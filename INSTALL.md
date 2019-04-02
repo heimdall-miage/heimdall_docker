@@ -1,6 +1,5 @@
 * Clone the repository : `git clone https://github.com/SosthenG/heimdall_docker`
 * Clone the web app repository inside the web/src directory : `git clone https://github.com/SosthenG/heimdall_web`
-(TODO : Clone and install the app directly from the Dockerfile)
 * Execute command `docker-compose up` from the root of the heimdall_docker folder
 * Execute the command `docker exec -ti -u heimdall heimdall_web /bin/bash` : This will log you inside the web container
   * Launch `composer install`
