@@ -9,7 +9,7 @@ services:
       - ./db/data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: heimdall
-      POSTGRES_PASSWORD: heimdall # TO CHANGE
+      POSTGRES_PASSWORD: heimdall
     ports:
       - 5432:5432
 
@@ -17,9 +17,10 @@ services:
     build: ./web
     container_name: heimdall_web
     hostname: heimdall_web
-    volumes:
-      - ./web/src:/home/www
     depends_on:
       - postgres
     ports:
       - 80:80
+    environment:
+      APP_ENV: prod
+      SERVER_NAME: heimdall.watch
