@@ -3,4 +3,5 @@
 *.iml
 
 # Web src
-src/
+web/src/
+db/
