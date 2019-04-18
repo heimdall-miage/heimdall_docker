@@ -19,6 +19,7 @@ You can access the container as root with `docker exec -ti heimdall_web /bin/bas
 Use `docker exec -ti -u heimdall heimdall_web /bin/bash` to use the heimdall user instead of root (to run composer for example, which should never be ran as root)
 
 ** A mettre dans un readme dev**
+
 **Se connecter au contenaire web sous intelliJ**
 
 docker exec -ti -u heimdall heimdall_web /bin/bash
