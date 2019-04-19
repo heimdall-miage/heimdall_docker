@@ -16,7 +16,16 @@ Now that the environment is installed, you can start/stop/restart it with: `dock
 
 You can access the container as root with `docker exec -ti heimdall_web /bin/bash`
 
+
+
 Use `docker exec -ti -u heimdall heimdall_web /bin/bash` to use the heimdall user instead of root (to run composer for example, which should never be ran as root)
+
+**A chaque nouvelle dépendances html/css/js**
+yarn install
+
+**A chaque  nouvelle dépendances**
+
+composer install
 
 ** A mettre dans un readme dev web **
 
