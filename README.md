@@ -42,4 +42,9 @@ Ctrl alt A pour commit les fichier (uniquement en création, passage de rouge à
 
 yarn watch
 
+**renouveller le cache après un update**
+
+php bin/console cache:clear
+
+
 
