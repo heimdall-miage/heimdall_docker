@@ -4,7 +4,7 @@
 * (Optional) Modify the docker-compose.yml environment variables according to your expected configuration
 
 **Development environment**
-* Execute command `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -- build` from the root of the heimdall_docker folder
+* Execute command `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build` from the root of the heimdall_docker folder
 * You can now access the web interface at `http://localhost`
 
 **Production environment**
