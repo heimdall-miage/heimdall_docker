@@ -20,9 +20,12 @@ EOL
         mv ${PHP_INI_DIR}/php.ini-development ${PHP_INI_DIR}/php.ini
         # To be able to easily modify the project files from the host
         chmod -R 777 /home/www/heimdall_web
+        sudo -u heimdall yarn install
+        sudo -u heimdall yarn encore dev
     else
         echo "-- Prod env --"
         mv ${PHP_INI_DIR}/php.ini-production ${PHP_INI_DIR}/php.ini
+        sudo -u heimdall yarn encore production
     fi
 
     sudo -u heimdall composer install -d /home/www/heimdall_web
