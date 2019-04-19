@@ -16,7 +16,15 @@ RUN a2dissite 000-default
 
 ## Libs
 RUN apt-get update || apt-get update \
-    	&& apt-get install -my sudo git libpq-dev zip unzip libzip-dev zlib1g-dev libicu-dev g++
+    	&& apt-get install -my sudo git libpq-dev zip unzip libzip-dev zlib1g-dev libicu-dev g++ gnupg apt-transport-https wget
+
+# Nodejs & Yarn
+RUN apt-get remove cmdtest \
+	&& apt-get remove yarn \
+	&& curl -sL https://deb.nodesource.com/setup_8.x | bash - \
+	&& curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+	&& echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update && apt-get install -y nodejs yarn libxml2 libxml2-utils
 
 # PHP Exts
 RUN docker-php-ext-install pdo_pgsql \
