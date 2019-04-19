@@ -30,6 +30,6 @@ Pour commit selectionner : heimdall_web dans le projet
 Ctrl alt A pour commit les fichier (uniquement en création, passage de rouge à vert)
 
 **compiler bootstrap à chaque modification du css/js**
-yarn encore dev --watch
+yarn watch
 
 
