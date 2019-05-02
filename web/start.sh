@@ -25,6 +25,7 @@ EOL
     else
         echo "-- Prod env --"
         mv ${PHP_INI_DIR}/php.ini-production ${PHP_INI_DIR}/php.ini
+        sudo -u heimdall yarn install
         sudo -u heimdall yarn encore production
     fi
 
