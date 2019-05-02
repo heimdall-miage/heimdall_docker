@@ -53,5 +53,6 @@ php bin/console cache:clear
 **mettre a jour la base de donnée suite à mise à jour du schema**
 php bin/console doctrine:schema:update --force
 
-
+**Mettre à jour la base de donnée en fonction des data fixtures**
+php bin/console doctrine:fixtures:load
 
