@@ -42,9 +42,16 @@ Ctrl alt A pour commit les fichier (uniquement en création, passage de rouge à
 
 yarn watch
 
+**regénéré les assets, css et js**
+
+yarn encore dev
+
 **renouveller le cache après un update**
 
 php bin/console cache:clear
+
+**mettre a jour la base de donnée suite à mise à jour du schema**
+php bin/console doctrine:schema:update --force
 
 
 
