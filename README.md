@@ -16,9 +16,18 @@ Now that the environment is installed, you can start/stop/restart it with: `dock
 
 You can access the container as root with `docker exec -ti heimdall_web /bin/bash`
 
+
+
 Use `docker exec -ti -u heimdall heimdall_web /bin/bash` to use the heimdall user instead of root (to run composer for example, which should never be ran as root)
 
-** A mettre dans un readme dev**
+**A chaque nouvelle dépendances html/css/js**
+yarn install
+
+**A chaque  nouvelle dépendances**
+
+composer install
+
+** A mettre dans un readme dev web **
 
 **Se connecter au contenaire web sous intelliJ**
 
@@ -28,4 +37,24 @@ docker exec -ti -u heimdall heimdall_web /bin/bash
 
 Pour commit selectionner : heimdall_web dans le projet
 Ctrl alt A pour commit les fichier (uniquement en création, passage de rouge à vert)
+
+**compiler bootstrap à chaque modification du css/js**
+
+yarn watch
+
+**regénéré les assets, css et js**
+
+yarn encore dev
+
+**renouveller le cache après un update**
+
+php bin/console cache:clear
+
+**mettre a jour la base de donnée suite à mise à jour du schema**
+
+php bin/console doctrine:schema:update --force
+
+**Mettre à jour la base de donnée en fonction des data fixtures**
+
+php bin/console doctrine:fixtures:load
 

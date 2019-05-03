@@ -25,13 +25,18 @@ EOL
     else
         echo "-- Prod env --"
         mv ${PHP_INI_DIR}/php.ini-production ${PHP_INI_DIR}/php.ini
+        sudo -u heimdall yarn install
         sudo -u heimdall yarn encore production
     fi
 
     sudo -u heimdall composer install -d /home/www/heimdall_web
-    FIXTURES_GRP=${APP_ENV}Fixtures
     sudo -u heimdall /home/www/heimdall_web/bin/console doctrine:schema:update --force
-    sudo -u heimdall /home/www/heimdall_web/bin/console doctrine:fixtures:load --group=${FIXTURES_GRP^}
+
+    if [[ ${APP_ENV} == "dev" ]]; then
+        sudo -u heimdall /home/www/heimdall_web/bin/console doctrine:fixtures:load --append
+    else
+        echo "Run php bin/console heimdall:init to configure the server for the first time" # TODO : command init (create super admin)
+    fi
 fi
 
 apache2-foreground
