@@ -12,7 +12,8 @@ JWT_PASSPHRASE=${JWT_PASSPHRASE}
 EOL
     openssl genrsa -out /home/www/heimdall_web/config/jwt/private.pem -aes256 -passout pass:${JWT_PASSPHRASE} 4096
     openssl rsa -pubout -in /home/www/heimdall_web/config/jwt/private.pem -out /home/www/heimdall_web/config/jwt/public.pem -passin pass:${JWT_PASSPHRASE}
-    chown -R heimdall:www-data /home/www/heimdall_web
+    chown -R www-data:www-data /home/www/heimdall_web
+    setfacl -dRm u:www-data:rwX,g:www-data:rwX /home/www/heimdall_web
     chmod -R 770 /home/www/heimdall_web/config/jwt
 
     if [[ ${APP_ENV} == "dev" ]]; then

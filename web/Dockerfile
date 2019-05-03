@@ -16,7 +16,7 @@ RUN a2dissite 000-default
 
 ## Libs
 RUN apt-get update || apt-get update \
-    	&& apt-get install -my sudo git libpq-dev zip unzip libzip-dev zlib1g-dev libicu-dev g++ gnupg apt-transport-https wget
+    	&& apt-get install -my sudo git libpq-dev zip unzip libzip-dev zlib1g-dev libicu-dev g++ gnupg apt-transport-https wget acl jpegoptim optipng
 
 # Nodejs & Yarn
 RUN apt-get remove cmdtest \
@@ -38,7 +38,6 @@ RUN docker-php-ext-install pdo_pgsql \
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
 	mv composer.phar /usr/local/bin/composer
-RUN apt-get update && apt-get install -my jpegoptim optipng
 
 # User heimdall
 RUN useradd -ms /bin/bash --groups www-data heimdall
