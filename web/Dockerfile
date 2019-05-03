@@ -38,6 +38,7 @@ RUN docker-php-ext-install pdo_pgsql \
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
 	mv composer.phar /usr/local/bin/composer
+RUN apt-get update && apt-get install -my jpegoptim optipng
 
 # User heimdall
 RUN useradd -ms /bin/bash --groups www-data heimdall
