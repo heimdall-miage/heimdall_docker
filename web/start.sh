@@ -7,6 +7,7 @@ if [ ! -d "/home/www/heimdall_web" ]; then
     JWT_PASSPHRASE=`cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 32 | head -n 1`
     APP_SECRET=`cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 32 | head -n 1`
     cat >/home/www/heimdall_web/.env.local <<EOL
+APP_ENV=${APP_ENV}
 APP_SECRET=${APP_SECRET}
 JWT_PASSPHRASE=${JWT_PASSPHRASE}
 EOL
