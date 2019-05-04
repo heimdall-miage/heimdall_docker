@@ -23,4 +23,4 @@ services:
       - 80:80
     environment:
       APP_ENV: prod
-      SERVER_NAME: heimdall.watch
+      HEIMDALL_SERVER_NAME: heimdall.watch

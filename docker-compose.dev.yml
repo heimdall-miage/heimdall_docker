@@ -6,4 +6,4 @@ services:
       - ./web/src:/home/www
     environment:
       APP_ENV: dev
-      SERVER_NAME: dev.heimdall.watch
+      HEIMDALL_SERVER_NAME: dev.heimdall.watch
