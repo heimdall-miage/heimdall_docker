@@ -24,16 +24,17 @@ RUN apt-get remove cmdtest \
 	&& curl -sL https://deb.nodesource.com/setup_8.x | bash - \
 	&& curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 	&& echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-    && apt-get update && apt-get install -y nodejs yarn libxml2 libxml2-utils
+    && apt-get update && apt-get install -y nodejs yarn libxml2 libxml2-utils libpng-dev
 
 # PHP Exts
-RUN docker-php-ext-install pdo_pgsql \
-	&& docker-php-ext-configure zip --with-libzip \
-	&& docker-php-ext-install zip \
-	&& docker-php-ext-configure intl \
-	&& docker-php-ext-install intl \
-	&& docker-php-ext-configure opcache \
-	&& docker-php-ext-install opcache
+RUN docker-php-ext-install pdo_pgsql
+RUN docker-php-ext-configure zip --with-libzip
+RUN docker-php-ext-install zip
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install intl
+RUN docker-php-ext-configure opcache
+RUN docker-php-ext-install opcache
+RUN docker-php-ext-install gd
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
