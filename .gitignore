@@ -5,3 +5,5 @@
 # Web src
 web/src/
 db/
+
+docker-compose.override.yml

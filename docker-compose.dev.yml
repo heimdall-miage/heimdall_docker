@@ -1,9 +1,0 @@
-version: '3.3'
-
-services:
-  webserver:
-    volumes:
-      - ./web/src:/home/www
-    environment:
-      APP_ENV: dev
-      HEIMDALL_SERVER_NAME: dev.heimdall.watch

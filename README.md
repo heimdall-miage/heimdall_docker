@@ -1,24 +1,32 @@
 **INSTALL**
 
 * Clone this repository : `git clone https://github.com/heimdall-watch/heimdall_docker`
-* (Optional) Modify the docker-compose.yml environment variables according to your expected configuration
 
-**Development environment**
-* Execute command `docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build` from the root of the heimdall_docker folder
-* You can now access the web interface at `http://localhost`
+**Configure the environment**
 
-**Production environment**
-* Execute command `docker-compose up` from the root of the heimdall_docker folder
+You have to configure at least the _onesignal_, _mailer_ and _server_name_ environment variables for the application to work on a prod env.
 
-Now that the environment is installed, you can start/stop/restart it with: `docker-compose start` (replacing start by the desired action)
+* Modify the .env file according to your expected configuration (be sure to avoid committing it, or use the next solution)
+
+OR
+
+* Remove the ".dist" in the name of "docker-compose.override.yml.dist" and override the environment variables in there. This file is ignored by git.
+
+**Initialize the server**
+
+* Execute command `docker-compose up --build` from the root of the heimdall_docker folder
+
+* A webserver is now running on port 80 (default). You can access it on `http://localhost`.
+
+Now that the environment is installed, you can start/stop/restart it with: `docker-compose start` (replacing start by the desired action).
 
 **Access the container**
 
 You can access the container as root with `docker exec -ti heimdall_web /bin/bash`
 
+Use `docker exec -ti -u heimdall heimdall_web /bin/bash` to use the heimdall user instead of root.
 
-
-Use `docker exec -ti -u heimdall heimdall_web /bin/bash` to use the heimdall user instead of root (to run composer for example, which should never be ran as root)
+**Temp dev notes**
 
 **A chaque nouvelle dépendances html/css/js**
 yarn install
@@ -26,8 +34,6 @@ yarn install
 **A chaque  nouvelle dépendances**
 
 composer install
-
-** A mettre dans un readme dev web **
 
 **Se connecter au contenaire web sous intelliJ**
 
