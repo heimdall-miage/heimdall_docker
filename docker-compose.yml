@@ -5,6 +5,9 @@ services:
     image: postgres:alpine
     container_name: heimdall_db
     hostname: heimdall_db
+    environment:
+      POSTGRES_USER: heimdall
+      POSTGRES_PASSWORD: heimdall
     volumes:
       - ./db/data:/var/lib/postgresql/data
     ports:
@@ -14,6 +17,7 @@ services:
     build: ./web
     container_name: heimdall_web
     hostname: heimdall_web
+    env_file: .env
     volumes:
       - ./web/src:/home/www
     depends_on:
