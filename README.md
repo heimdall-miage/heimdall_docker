@@ -24,6 +24,8 @@ Now that the environment is installed, you can start/stop/restart it with: `dock
 
 **Update the server**
 
+/!\ This project is still under development, the updates might be bugged and there is no release at this time. An update will just pull the master branch, download new dependancies and reload the assets.
+
 * Execute the command `docker exec -ti -u heimdall heimdall_web /home/www/heimdall_web/bin/console heimdall:update`
 
 **Access the container**
