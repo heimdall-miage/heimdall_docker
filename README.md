@@ -1,6 +1,6 @@
 **INSTALL**
 
-* Clone this repository : `git clone https://github.com/heimdall-watch/heimdall_docker`
+* Clone this repository : `git clone https://github.com/heimdall-miage/heimdall_docker`
 
 **Configure the environment**
 
